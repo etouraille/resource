@@ -73,11 +73,11 @@ $app->error(function (\Exception $e, $code) use ($app) {
 
     if($code == 404)
     {
-        return new \Symfony\Component\HttpFoundation\Response($app['twig']->render('404.twig'));
+        return new \Symfony\Component\HttpFoundation\Response('404');
     }
     else
     {
-        return new \Symfony\Component\HttpFoundation\Response($app['twig']->render('error.twig'));
+        return new \Symfony\Component\HttpFoundation\Response('500');
     }
 
 });
