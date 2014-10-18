@@ -5,7 +5,7 @@ session_start();
 
 $app = new Silex\Application();
 $app['Controller'] = new OP\Controller\Resource($app);
-
+$app['debug'] = true;
 
 
 simpleMySQL\Model::setParams('localhost','root','b1otope','resource');
