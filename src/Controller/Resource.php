@@ -11,7 +11,6 @@ namespace OP\Controller;
 
 use OP\Model\ResourceType;
 use Silex\Application;
-use Respect\Validation\Validator as v;
 use Symfony\Component\HttpFoundation\Request;
 
 class Resource extends Main{
