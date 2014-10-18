@@ -1,0 +1,86 @@
+{% extends "main.twig" %}
+{% block content %}
+    <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-6">
+            <form action="http://{{ urlSite }}/inscription" method="post" role="form">
+                <div class="form-group {% if data.lastName.message != ''  %} has-error{% endif %}">
+                    <label for="lastname">Nom</label>
+                    <input type="text" class="form-control" id="lastName" placeholder="Nom" name="lastName" value="{{ data.lastName.value }}">
+                    {% if  data.lastName.message!= '' %}<span class="help-block">{{ data.lastName.message }}</span>{% endif %}
+                </div>
+                <div class="form-group {% if data.firstName.message != ''  %} has-error{% endif %}">
+                    <label for="firstname">Prénom</label>
+                    <input type="text" class="form-control" id="firstName" placeholder="Prénom" name="firstName" value="{{ data.firstName.value }}">
+                    {% if  data.firstName.message!= '' %}<span class="help-block">{{ data.firstName.message }}</span>{% endif %}
+                </div>
+                <div class="form-group {% if data.company.message != ''  %} has-error{% endif %}">
+                    <label for="company">Société</label>
+                    <input type="text" class="form-control" id="company" placeholder="Société" name="company" value="{{ data.company.value }}">
+                    {% if  data.company.message!= '' %}<span class="help-block">{{ data.company.message }}</span>{% endif %}
+                </div>
+                <div class="form-group {% if data.tel.message != ''  %} has-error{% endif %}">
+                    <label for="tel">Téléphone</label>
+                    <input type="text" class="form-control" id="tel" placeholder="Téléphone" name="tel" value="{{ data.tel.value }}">
+                    {% if  data.tel.message!= '' %}<span class="help-block">{{ data.tel.message }}</span>{% endif %}
+                </div>
+
+                <div class="form-group {% if data.address.message != ''  %} has-error{% endif %}">
+                    <label for="address">Adresse de la société</label>
+                    <textarea id="address"  name="address" class="col-md-12">{{ data.address.value }}</textarea>
+                    {% if data.address.message != '' %}<span class="help-block">{{ data.address.message }}</span>{% endif %}
+                </div>
+                <div class="form-group {% if data.email.message != ''  %} has-error{% endif %}">
+                    <label for="email">Email</label>
+                    <input type="email" class="form-control" id="email" placeholder="Email" name="email" value="{{ data.email.value }}">
+                    {% if data.email.message != '' %}<span class="help-block">{{ data.email.message }}</span>{% endif %}
+                </div>
+                <div class="form-group{% if data.pass.message != ''  %} has-error{% endif %}">
+                    <label for="pass1">Mot de passe</label>
+                    <input type="password" class="form-control" id="pass1" name="pass1">
+                    {% if data.pass.message != '' %}<span class="help-block">{{ data.pass.message }}</span>{% endif %}
+                </div>
+                <div class="form-group">
+                    <label for="pass2">Confirmer le mot de passe</label>
+                    <input type="password" class="form-control" id="pass2" name="pass2">
+                </div>
+                <div class="form-group">
+
+                    <input type="submit" class="btn btn-success" value="Inscription">
+                </div>
+                <input type="hidden" name="zipcode" id="zipcode" value="{{ data.zipcode.value }}"/>
+                <input type="hidden" name="addressWithNoCity" id="adressWithNoCity" value="{{ data.addressWithNoCity.value }}"/>
+                <input type="hidden" name="city" id="city" value="{{ data.city.value }}"/>
+                <input type="hidden" name="country" id="country" value="{{ data.city.country }}"/>
+            </form>
+        </div>
+        <div class="col-md-3"></div>
+
+    </div>
+
+
+{% endblock %}
+{% block javascript %}
+
+    <script type="text/javascript">
+        var address = document.getElementById('address');
+        var autocomplete = new google.maps.places.Autocomplete(address);
+
+        google.maps.event.addListener(autocomplete, 'place_changed', function() {
+
+            var place = autocomplete.getPlace();
+            setPlace(place);
+
+        });
+        {% if data.address.value is defined  %}
+        $.ajax({
+            url : 'https://maps.googleapis.com/maps/api/geocode/json?address='+encodeURIComponent('{{ data.address.value }}'),
+            success : function(data){
+                setPlace(data['results'][0]);
+            }
+        })
+        {% endif %}
+    </script>
+
+
+{% endblock %}
