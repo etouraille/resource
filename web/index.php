@@ -8,7 +8,7 @@ $app['Controller'] = new OP\Controller\Resource($app);
 
 
 
-simpleMySQL\Model::setParams('localhost','root','b1otope','nrj');
+simpleMySQL\Model::setParams('localhost','root','b1otope','resource');
 
 //identification process.
 $app['redirectIfNotLogged'] = array('/credential');

@@ -14,14 +14,8 @@
     "require":
     {
         "silex/silex":"~1.2",
-        "twig/twig": "1.16.*@dev",
-        "yohang/calendr": "1.*",
         "curl/curl":"dev-master",
         "etouraille/simpleMySQL": "dev-master",
-        "hieu-le/wordpress-xmlrpc-client":"~2.0",
-        "google/apiclient": "1.0.*@beta",
-        "curl/curl": "dev-master",
-        "nuovo/spreadsheet-reader": "dev-master",
         "respect/validation" : "dev-master"
     },
     "autoload": {
@@ -30,5 +24,4 @@
             "simpleMySQL\\": "vendor/etouraille/simpleMySQL/src"
         }
     }
-
 }
