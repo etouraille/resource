@@ -19,12 +19,4 @@ $curl->post('http://resource/login',
 
 $json = json_decode($curl->response);
 $token = $json->token;
-
-
-$curl->post('http://resource/credential/create/resource-type',
-    array(
-        'name'=>'toto',
-        'token'=>$token,
-    ));
-
 var_dump($curl->response);

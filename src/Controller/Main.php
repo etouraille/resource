@@ -48,6 +48,8 @@ class Main
             $success = false;
         }
         $return['success']= $success;
+        $return['email']=$email;
+        $return['password']=$password;
         return $app->json($return);
     }
 
