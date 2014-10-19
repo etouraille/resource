@@ -25,7 +25,7 @@ class Token {
     {
         $this->tokenModel->add(array(
             'idMe'=>$idMe,
-            'value'=>$tokenValue = strtolower(md5(time().$this->idMe)),
+            'value'=>$tokenValue = strtolower(md5(time().$idMe)),
             'duration'=>$this->duration,
             )
         );
@@ -43,7 +43,7 @@ class Token {
             else
             {
                 $creation = $rowToken['creation'];
-                $valid =  ($creation+$duration) > time();
+                $valid =  (strtotime($creation)+$duration) > time();
                 if($valid)
                 {
                     return $rowToken['idMe'];

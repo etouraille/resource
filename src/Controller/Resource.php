@@ -43,7 +43,7 @@ class Resource extends Main{
         else
         {
             $success = true;
-            $resourceTypeModel->add(array('name'=>$name));
+            $resourceTypeModel->add(array('name'=>$name,'idMe'=>$app['idMe']));
         }
         $return['success']= $success;
         return $app->json($return);

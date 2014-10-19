@@ -30,7 +30,7 @@ $app->post('/create-account', function(Request $request) use($app){
     return $app['Controller']->createAccount($request,$app);
 });
 
-$app->post('/credential/create-resource-type', function(Request $request) use($app){
+$app->post('/credential/create/resource-type', function(Request $request) use($app){
     return $app['Controller']->createResourceType($request,$app);
 });
 

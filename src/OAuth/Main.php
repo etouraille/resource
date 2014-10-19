@@ -36,7 +36,7 @@ class Main {
         }
     }
 
-    private function encrypt($pass)
+    public function encrypt($pass)
     {
         return md5($pass);
     }

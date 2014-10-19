@@ -19,8 +19,8 @@ class Main
     public function checkToken(Request $request, Application $app)
     {
         $tokenValue = $request->get('token');
-        $token = new \OP\OAuth\Token();
-        $idMe = $token->isValid($token);
+        $tokenModel = new \OP\OAuth\Token();
+        $idMe = $tokenModel->isValid($tokenValue);
         if($idMe){
             $app['idMe'] = $idMe;
         }
@@ -57,6 +57,7 @@ class Main
         $pass1 = $request->get('pass1');
         $pass2 = $request->get('pass2');
 
+        $oauth = new \OP\OAuth\Main();
         $meModel = new \OP\Model\Me();
         $messages= array();
         if(!v::email()->validate($email))
@@ -85,7 +86,7 @@ class Main
         }
         else
         {
-            $meModel->add(array('email'=>$email,'pass'=>$pass1));
+            $meModel->add(array('email'=>$email,'pass'=>$oauth->encrypt($pass1)));
         }
         $return['success']= $success;
 
