@@ -43,7 +43,8 @@ class Token {
             else
             {
                 $creation = $rowToken['creation'];
-                $valid =  (strtotime($creation)+$duration) > time();
+                $time = time();
+                $valid =  (strtotime($creation)+$duration) > $time;
                 if($valid)
                 {
                     return $rowToken['idMe'];
@@ -60,6 +61,7 @@ class Token {
         }
     }
 
+    
     public function getTokenValue($idMe)
     {
         $rowsToken = $this->tokenModel->getRows(array('idMe'=>$idMe),array('creation'=>'DESC'));

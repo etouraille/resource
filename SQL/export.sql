@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client: localhost
--- Généré le: Sam 18 Octobre 2014 à 12:46
+-- Généré le: Lun 20 Octobre 2014 à 10:39
 -- Version du serveur: 5.5.37-0ubuntu0.14.04.1
 -- Version de PHP: 5.5.9-1ubuntu4.4
 
@@ -17,7 +17,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8 */;
 
 --
--- Base de données: `ressource`
+-- Base de données: `resource`
 --
 
 DELIMITER $$
@@ -34,7 +34,7 @@ BEGIN
     DECLARE dlo DOUBLE;
     DECLARE dla DOUBLE;
     DECLARE a DOUBLE;
-
+    
     SET rlo1 = RADIANS(lng1);
     SET rla1 = RADIANS(lat1);
     SET rlo2 = RADIANS(lng2);
@@ -75,7 +75,14 @@ CREATE TABLE IF NOT EXISTS `me` (
   `country` varchar(255) NOT NULL,
   `lastVisit` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=11 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=14 ;
+
+--
+-- Contenu de la table `me`
+--
+
+INSERT INTO `me` (`id`, `pseudo`, `pass`, `email`, `address`, `lat`, `long`, `description`, `tel`, `activated`, `firstName`, `lastName`, `company`, `companyType`, `addressWithNoCity`, `city`, `zipcode`, `country`, `lastVisit`) VALUES
+(13, '', '3ed5ecc14e321c8042b3cffe338f6ffb', 'edouard.touraille@gmail.com', '', 0.0000000, 0.0000000, '', '', '', '', '', '', 0, '', '', '', '', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -105,8 +112,16 @@ DROP TABLE IF EXISTS `resource-type`;
 CREATE TABLE IF NOT EXISTS `resource-type` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) CHARACTER SET utf8 NOT NULL,
+  `idMe` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+
+--
+-- Contenu de la table `resource-type`
+--
+
+INSERT INTO `resource-type` (`id`, `name`, `idMe`) VALUES
+(1, 'toto', 13);
 
 -- --------------------------------------------------------
 
@@ -116,12 +131,20 @@ CREATE TABLE IF NOT EXISTS `resource-type` (
 
 DROP TABLE IF EXISTS `token`;
 CREATE TABLE IF NOT EXISTS `token` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `idMe` int(11) NOT NULL,
   `value` varchar(255) CHARACTER SET utf8 NOT NULL,
   `creation` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `duration` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `duration` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+
+--
+-- Contenu de la table `token`
+--
+
+INSERT INTO `token` (`id`, `idMe`, `value`, `creation`, `duration`) VALUES
+(1, 13, '85cf9dd1b0cbeae913852fdc304c4458', '2014-10-18 12:42:33', 31449600);
 
 -- --------------------------------------------------------
 
