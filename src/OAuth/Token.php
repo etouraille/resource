@@ -61,7 +61,7 @@ class Token {
         }
     }
 
-    
+
     public function getTokenValue($idMe)
     {
         $rowsToken = $this->tokenModel->getRows(array('idMe'=>$idMe),array('creation'=>'DESC'));
