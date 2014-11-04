@@ -13,7 +13,7 @@ class Neighbour extends \OP\LBC\Filter{
 
     public function getAvailableFilters()
     {
-        return null;
+        return array('Region::ZipCode::Main');
     }
 
     public function getAvailableValues()

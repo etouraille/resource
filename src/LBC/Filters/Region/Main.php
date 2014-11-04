@@ -41,14 +41,15 @@ class Main extends \OP\LBC\Filter implements \OP\LBC\Filters\FilterInterface {
         return array(
             'Region::Country',
             'Region::Neighbour',
-            'Region::Department::Main'
+            'Region::Department::Main',
+            'Region::ZipCode::Main'
         );
     }
 
 
     public function after()
     {
-        // offre demande
+        return 'OfferDemand::Main';
     }
 
 }

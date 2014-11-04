@@ -29,7 +29,10 @@ class Main extends \OP\LBC\Filter implements \OP\LBC\Filters\FilterInterface{
     }
 
     public function getAvailableFilters(){
-        return array('Region::Departement::Neighbour');
+        return array(
+            'Region::Departement::Neighbour',
+            'Region::ZipCode::Main'
+        );
     }
 
     public function after()

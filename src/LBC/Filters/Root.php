@@ -11,10 +11,22 @@ namespace OP\LBC\Filters;
 
 
 
-class Root {
+class Root extends \OP\LBC\Filter{
 
-    public function __construct($region,$offreDemande,$categorie)
+    protected $value = 'wwww.leboncoin.fr';
+
+    public function getAvailableFilters()
     {
+        return array();
+    }
 
+    public function getAvailableValues()
+    {
+        return array();
+    }
+
+    public function after()
+    {
+        return null;
     }
 }

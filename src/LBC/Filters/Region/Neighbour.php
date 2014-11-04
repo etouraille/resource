@@ -25,17 +25,12 @@ class Neighbour implements \OP\LBC\Filters\FilterInterface {
 
     public function getAvailableFilters()
     {
-        return null;
-    }
-
-    public function addFilter()
-    {
-        return null;
+        return array('Region::ZipCode::Main');
     }
 
     public function after()
     {
-        return \OP\LBC\FilterFactory\Main::get('Region::Main');
+        return 'Region::Main';
     }
 
 } 

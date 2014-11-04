@@ -9,19 +9,59 @@
 namespace OP\LBC\FilterFactory;
 
 
-class Main {
+class  Main implements \Iterator{
 
     protected static $classes = array();
 
-    public function get($class)
+    protected $position;
+
+
+    public function __construct(){
+        $this->position = 'Root';
+
+    }
+
+    public static function get($classIndex)
     {
-        if(isset(self::$classes[$class]))
+        if(isset(self::$classes[$classIndex]))
         {
-            return self::$classes[$class];
+            return self::$classes[$classIndex];
         }
-        $exploded = explode('::',$class);
-        $class = implode("\\",$exploded);
-        $class =  "\\OP\\LBC\\Filters\\".$class;
-        return new $class;
+        $exploded = explode('::',$classIndex);
+        $shortClassName = implode("\\",$exploded);
+        $class =  "\\OP\\LBC\\Filters\\".$shortClassName;
+        $instance =  new $class;
+        self::$classes[$classIndex]= $instance;
+        return $instance;
+    }
+
+    public function valid()
+    {
+        return isset(self::$classes[$this->position]);
+    }
+    public function rewind()
+    {
+        $this->postion = 'Root';
+    }
+
+    public function key(){
+        return $this->position;
+    }
+
+    public function next()
+    {
+        foreach(self::$classes as $filterInstanceName => $filterInstance)
+        {
+            if($this->position == $filterInstance->after())
+            {
+                $this->position = $filterInstanceName;
+                return;
+            }
+        }
+        $this->position = false;
+    }
+
+    public function current(){
+        return self::$classes[$this->position];
     }
 }
