@@ -1,0 +1,9 @@
+article en tete en majuscule séparé par un espace Le,La,Un,Une,Des
+article dans le mot en minuscule
+mot dans le corps separé par des tiret
+mot separé par des tirés Bonnac-la-Côte espace est le zipcode
+La Chapelle-Taillefert
+Puy-d'Arnac, les espace sont remplacé par des tiret, les article elidé mis en minuscule et les nom long sont toujours mis en majuscule
+Saint-Léonard-de-Noblat
+La Roche-l'Abeille
+

@@ -9,7 +9,7 @@
 namespace OP\LBC\Model;
 
 
-class Department extends \simpleMySQL\Model{
+class Region extends \simpleMySQL\Model{
 
     public function __construct()
     {

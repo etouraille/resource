@@ -61,19 +61,3 @@ var lbc = angular.module('lbc', []).config(function($interpolateProvider){
         }
     };
 });
-
-/*
-
- Structure du json :
- {
- CategoryMain:
- { filterName: CategoryMain, value: 'voiture' , childs :
- [
- {  {instance: MaxPrice : value : 10 , childs : []}},
- { minPrice : { value : 1, childs : [] }}
- ],
- values : []
- },
- RegionMain: { value: undefined', childs: []}, }
- *
- * */
