@@ -11,6 +11,10 @@ namespace OP\LBC\Filters\Category;
 
 class Main extends \OP\LBC\Filter{
 
+    public function getName(){
+        return 'Category::Main';
+    }
+
     public function getAvailableValues()
     {
         return array(

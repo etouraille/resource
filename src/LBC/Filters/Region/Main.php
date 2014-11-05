@@ -9,10 +9,15 @@
 namespace OP\LBC\Filters\Region;
 
 
-class Main extends \OP\LBC\Filter implements \OP\LBC\Filters\FilterInterface {
+class Main extends \OP\LBC\Filter {
 
     protected $data;
     protected $value;
+
+    public function getName()
+    {
+        return "Region::Main";
+    }
 
     public function __construct()
     {
@@ -42,7 +47,7 @@ class Main extends \OP\LBC\Filter implements \OP\LBC\Filters\FilterInterface {
             'Region::Country',
             'Region::Neighbour',
             'Region::Department::Main',
-            'Region::ZipCode::Main'
+            'Region::Zipcode::Main'
         );
     }
 
@@ -51,5 +56,4 @@ class Main extends \OP\LBC\Filter implements \OP\LBC\Filters\FilterInterface {
     {
         return 'OfferDemand::Main';
     }
-
 }

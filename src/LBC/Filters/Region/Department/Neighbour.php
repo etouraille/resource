@@ -11,9 +11,13 @@ namespace OP\LBC\Filters\Region\Department;
 
 class Neighbour extends \OP\LBC\Filter{
 
+    public function getName(){
+        return "Region::Department::Neighbour";
+    }
+
     public function getAvailableFilters()
     {
-        return array('Region::ZipCode::Main');
+        return array('Region::Zipcode::Main');
     }
 
     public function getAvailableValues()

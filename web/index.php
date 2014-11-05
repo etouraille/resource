@@ -34,6 +34,10 @@ $app->post('/credential', function(Request $request) use($app){
     return $app->json(array('success'=>true));
 });
 
+$app->post('/op/lbc', function (Request $request) use($app){
+    return $app['LbcController']->getPosiblities($request);
+});
+
 
 $app->post('/credential/create/resource-type', function(Request $request) use($app){
     return $app['Controller']->createResourceType($request,$app);

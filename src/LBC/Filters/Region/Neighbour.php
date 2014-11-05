@@ -9,9 +9,14 @@
 namespace OP\LBC\Filters\Region;
 
 
-class Neighbour implements \OP\LBC\Filters\FilterInterface {
+class Neighbour extends \OP\LBC\Filter {
+
 
     protected $value = 'bonnes_affaires';
+
+    public function getName(){
+        return 'Region::Neightbour';
+    }
 
     public function getAvailableValues()
     {
@@ -25,7 +30,7 @@ class Neighbour implements \OP\LBC\Filters\FilterInterface {
 
     public function getAvailableFilters()
     {
-        return array('Region::ZipCode::Main');
+        return array('Region::Zipcode::Main');
     }
 
     public function after()

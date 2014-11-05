@@ -14,6 +14,10 @@ class Main extends \OP\LBC\Filter implements \OP\LBC\Filters\FilterInterface{
     protected $value;
     protected $data = array();
 
+    public function getName(){
+        return 'Region::Department::Main';
+    }
+
     public function getAvailableValues()
     {
         $region = \OP\LBC\FilterFactory\Main::get('Region::Main');
@@ -31,7 +35,7 @@ class Main extends \OP\LBC\Filter implements \OP\LBC\Filters\FilterInterface{
     public function getAvailableFilters(){
         return array(
             'Region::Departement::Neighbour',
-            'Region::ZipCode::Main'
+            'Region::Zipcode::Main'
         );
     }
 

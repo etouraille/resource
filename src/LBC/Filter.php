@@ -31,8 +31,10 @@ abstract class  Filter implements \OP\LBC\Filters\FilterInterface{
         $this->value = $value;
     }
 
-    public function addFilter($filter)
+    public function addFilter($filterName)
     {
+        $filter = $this->factory($filterName);
+        $filter->setPreviousFilter($this->getName());
         $this->filters[] = $filter;
     }
 

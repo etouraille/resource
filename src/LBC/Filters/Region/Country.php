@@ -9,7 +9,13 @@
 namespace OP\LBC\Filters\Region;
 
 
-class Country extends \OP\LBC\Filter implements \OP\LBC\Filters\FilterInterface{
+class Country extends \OP\LBC\Filter {
+
+    protected $value = 'occasions';
+
+    public function getName(){
+        return 'Region::Country';
+    }
 
     public function getAvailableValues(){
         return array('occasions'=>'Toute la France');
@@ -21,7 +27,7 @@ class Country extends \OP\LBC\Filter implements \OP\LBC\Filters\FilterInterface{
 
     public function getAvailableFilters(){
         return array(
-            'Region::ZipCode::Main'
+            'Region::Zipcode::Main'
         );
     }
 
@@ -29,3 +35,4 @@ class Country extends \OP\LBC\Filter implements \OP\LBC\Filters\FilterInterface{
         return 'Region::Main';
     }
 }
+

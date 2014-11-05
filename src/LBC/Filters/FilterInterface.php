@@ -21,4 +21,6 @@ interface FilterInterface {
 
     public function after();
 
+    public function getName();
+
 } 

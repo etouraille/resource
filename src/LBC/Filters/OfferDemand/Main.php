@@ -11,6 +11,10 @@ namespace OP\LBC\Filters\OfferDemand;
 
 class Main extends \OP\LBC\Filter{
 
+    public function getName(){
+        return 'OfferDemand::Main';
+    }
+
     public function getAvailableValues()
     {
         return array(
