@@ -16,7 +16,8 @@
         "silex/silex":"~1.2",
         "curl/curl":"dev-master",
         "etouraille/simpleMySQL": "dev-master",
-        "respect/validation" : "dev-master"
+        "respect/validation" : "dev-master",
+        "fabpot/goutte":"~2.0"
     },
     "autoload": {
         "psr-4": {

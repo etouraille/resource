@@ -10,19 +10,16 @@ include 'vendor/autoload.php';
 
 \simpleMySQL\Model::setParams('localhost','root','b1otope','lbc');
 
-$fp = fopen('region.csv','r+');
+$fp = fopen('near_region.csv','r+');
 
-$model = new \OP\LBC\Model\Region();
+$model = new \OP\LBC\Model\NearRegion();
 while($row = fgetcsv($fp))
 {
-    $id = $row[0];
-    $name = $row[1];
-    $value = strtolower($name);
+    $idRegion = $row[0];
+    $idNearRegion = $row[1];
 
         $model->add(array(
-            'id'=>$id,
-            'name'=>$name,
-            'value'=>$value,
+            'idRegion'=>$idRegion,
+            'idNearRegion'=>$idNearRegion,
         ));
-
 }
