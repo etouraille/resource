@@ -15,6 +15,11 @@ class Root extends \OP\LBC\Filter{
 
     protected $value = 'wwww.leboncoin.fr';
 
+    public function getName()
+    {
+        return 'Root';
+    }
+
     public function getAvailableFilters()
     {
         return array();
