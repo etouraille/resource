@@ -105,15 +105,13 @@ class Main {
 }
 /*
 Structure du json :
-{
-    CategoryMain:
-    { value: 'voiture' , children :
+[
+    { filterName : 'CategoryMain', value: 'voiture' , children :
                     [
                         { maxPrice ; { value : 10 , childs : [], values ; [], availableChildren: []}},
                         { minPrice : { value : 1, childs : [] }}
                     ],
           values : [], avalaibleChildren : []
-        },
-    RegionMain: { value: false, childs: []}, }
+        }]
  *
  * */
