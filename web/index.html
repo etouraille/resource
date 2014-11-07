@@ -7,10 +7,16 @@
     <script type="text/javascript" src="./js/controller.js"></script>
 
 </head>
-<body ng-app="lbc">
+<body>
     <div ng-controller="firstController">
         <tree family="json"></tree>
     </div>
+
+    <script>
+        angular.element(document).ready(function() {
+            angular.bootstrap(document, ['lbc']);
+        });
+    </script>
 
 </body>
 </html>
